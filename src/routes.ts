@@ -15,9 +15,10 @@ router.get('/films', async (req, res) => {
     }
 })
 router.get('/films/:id', async (req, res) => {
-    const id = req.params.id
     try {
-        const response = await films.findById(id)
+        console.log(req.params.id)
+        const response = await films.findById(req.params.id)
+        console.log(response)
         res.status(200).json(response)
     } catch (error) {
         res.status(500).json(error)
