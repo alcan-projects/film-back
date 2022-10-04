@@ -4,7 +4,7 @@ import cors from 'cors';
 import mongoose from 'mongoose';
 const app = express();
 
-mongoose.connect('mongodb://localhost:27017/films').then(() => {
+mongoose.connect(`mongodb://${process.env.PORT}:27017/films`).then(() => {
     console.log('COnectador com sucesso no banco de dados')
 }).catch(error => {
     console.log('Erro ao conectar no banco de dados: ', error)

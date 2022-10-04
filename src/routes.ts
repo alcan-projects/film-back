@@ -16,13 +16,7 @@ router.get('/films', async (req, res) => {
 })
 router.get('/films/:id', async (req, res) => {
     try {
-        console.log(req.params.id)
-        const response = await films.findOne({
-            where: {
-                _id: req.params.id
-            }
-        })
-        console.log(response)
+        const response = await films.findById(req.params.id)
         res.status(200).json(response)
     } catch (error) {
         res.status(500).json(error)
