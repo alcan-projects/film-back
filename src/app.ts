@@ -4,7 +4,11 @@ import cors from 'cors';
 import mongoose from 'mongoose';
 const app = express();
 
-mongoose.connect('mongodb://localhost:27017/films')
+mongoose.connect('mongodb://localhost:27017/films').then(() => {
+    console.log('COnectador com sucesso no banco de dados')
+}).catch(error => {
+    console.log('Erro ao conectar no banco de dados: ', error)
+})
 
 app.use(express.urlencoded({ extended: false }))
 app.use(express.json())
